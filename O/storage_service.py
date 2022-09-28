@@ -11,8 +11,5 @@ class StorageService:
 
 
 if __name__ == '__main__':
-    storageJ = StorageService(JSONStorage('data.json'))
-    storageY = StorageService(YAMLStorage('data.yaml'))
-    print(storageJ.get('username'))
-    print(storageY.get('username'))
-
+    for storage_ in [StorageService(JSONStorage('data.json')), StorageService(YAMLStorage('data.yaml'))]:
+        print(storage_.get('username'))
