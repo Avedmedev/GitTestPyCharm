@@ -15,21 +15,21 @@ class RequestConnection(Connection):
     def get_data(self):
         pass
 
+
 class ApiClient:
-    def __init__(self, fetch: requests):
+    def __init__(self, fetch: RequestConnection):
         self.fetch = fetch
 
     #
     def get_xml(self, url):
-        response = self.fetch.get(url)
+        response = self.fetch.requests.get(url)
         return response.text
 
 
 def parse_usd(data):
     exc = data.get('exchangerates', None)
-    print(exc)
     if exc:
-        return exc.get('row')[0].get('exchangerates').get('@buy')
+        return exc.get('row')[0].get('exchangerate').get('@buy')
     return None
 
 
