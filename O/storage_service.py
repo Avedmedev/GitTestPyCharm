@@ -10,8 +10,9 @@ class StorageService:
         return self.storage.get_value(key)
 
 
-storageJ = StorageService(JSONStorage('data.json'))
-storageY = StorageService(YAMLStorage('data.yaml'))
-print(storageJ.get('username'))
-print(storageY.get('username'))
+if __name__ == '__main__':
+    storageJ = StorageService(JSONStorage('data.json'))
+    storageY = StorageService(YAMLStorage('data.yaml'))
+    print(storageJ.get('username'))
+    print(storageY.get('username'))
 

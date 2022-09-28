@@ -18,7 +18,7 @@ class JSONStorage(IStorage):
 
     def get_value(self, key) -> str:
         with open(self.filename, 'r') as f:
-            data = json.load(self.filename)
+            data = json.load(f)
             return data.get(key, None)
 
 
@@ -28,5 +28,5 @@ class YAMLStorage(IStorage):
 
     def get_value(self, key) -> str:
         with open(self.filename, 'r') as f:
-            data = yaml.load(self.filename, Loader=Loader)
+            data = yaml.load(f, Loader=Loader)
             return data.get(key, None)
